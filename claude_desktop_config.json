@@ -1,0 +1,6 @@
+"mcpServers": {
+     "salesforce": {
+       "command": "npx",
+       "args": ["-y", "@salesforce/mcp", "--orgs", "devorg", "--toolsets", "data"]
+     }
+}
