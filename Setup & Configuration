@@ -1,0 +1,47 @@
+---
+
+## ⚙️ Setup & Configuration
+
+### 1. Salesforce Org Configuration
+To securely manage OAuth authorization and API scopes, follow these steps to configure your target framework:
+
+1. Navigate to the **Salesforce External Client App Manager** and create a new **External Client App (ECA)**.
+2. Define the **OAuth Security Scopes** to enforce strict `api` and `refresh_token` access.
+3. Access the **Trust Layer Layout** and securely extract the following credentials to wire into your AI client:
+   * **Consumer Key** (Client ID)
+   * **Consumer Secret** (Client Secret)
+
+### 2. Claude Code Configuration (CLI Workflow)
+To launch the MCP server connection natively in your terminal environment, execute your launch command to bind the server connection.
+
+Once authorization is successful, Claude can evaluate natural language prompts directly from your CLI to pull and aggregate records (e.g., Lead records) straight from the Salesforce Org.
+
+### 3. Claude Desktop Configuration (UI Workflow)
+To interact with live CRM data inside the Claude Desktop application, add a custom connector to your configuration file (`claude_desktop_config.json`) by passing the following parameters:
+
+* `mcpServerUrl`: The URL of your Salesforce-hosted MCP server.
+* `clientKey`: Your Salesforce Consumer Key.
+* `clientSecret`: Your Salesforce Consumer Secret.
+
+---
+
+## 🔒 Security & Data Governance
+
+To maintain strict enterprise data governance, the integration implements a **User-First Permission Check Workflow**:
+
+* **No Background Extraction:** Claude is restricted from automatically pulling or scraping data in the background.
+* **Explicit Authorization:** The system explicitly prompts the user for approval prior to running any data-fetching tool.
+* **On-Demand Execution:** Claude fetches real-time data from Salesforce and returns the precise payload only after the user grants explicit permission.
+
+---
+
+## 🚀 Key Benefits
+
+* **Zero Context Switching:** Query, filter, and aggregate Salesforce Leads or records entirely within your coding environment.
+* **Strict Security Boundaries:** Relies on native Salesforce OAuth scopes and runtime user consent.
+* **Headless Efficiency:** Leverages Headless 360 architectures to eliminate browser overhead for developers and operators.
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute to this implementation framework.
